@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071526453956",
+    "project_id": "lowbill-36190",
+    "storage_bucket": "lowbill-36190.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071526453956:android:0be487dd5709138800df91",
+        "android_client_info": {
+          "package_name": "com.example.lowbill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071526453956-mv6kfv8nqid7soqk8b8pe2l52ag8ktbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQTambGRvfkD-tH1eSHNPfJZ-Nb8Wh24E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071526453956-mv6kfv8nqid7soqk8b8pe2l52ag8ktbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
