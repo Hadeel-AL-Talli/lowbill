@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:lowbill/controllers/fb_auth_controller.dart';
 import 'package:lowbill/models/user.dart';
 
 
@@ -9,7 +10,7 @@ class FbUserController {
 
  
   Future<bool> create (User user, String name, String phone , String city) async{
- return _firestore.collection('Users').add({
+ return _firestore.collection('Users').doc(user.uid).set({
     'id':user.uid, 
     'name' :name,
     'email':user.email,
@@ -20,17 +21,7 @@ class FbUserController {
   }
   
  
-  // Future<UserData> getUserFromFirestore(String userId) async {
-  //   DocumentSnapshot<Map<String, dynamic>> document =
-  //       await _firestore.collection('Users').doc(userId).get();
-  //   Map<String, dynamic>? map = document.data();
-  //   UserData userModel = UserData.fromMap(map!);
-  //   print(userModel.toMap());
-  //   return userModel;
-  // }
-
-
- 
+  
 
   Future<bool> update({required UserData user}) {
     return _firestore
@@ -40,4 +31,9 @@ class FbUserController {
         .then((value) => true)
         .catchError((error) => false);
   }
+
+ Stream<QuerySnapshot<UserData>> read () async* { 
+ yield* _firestore.collection('Users').where('id' , isEqualTo: FbAuthController().currentUserId).withConverter<UserData>(fromFirestore: (snapshot, options) => UserData.fromMap(snapshot.data()!), toFirestore: (userdata , options)=>userdata.toMap()). snapshots();
+
+ } 
 }

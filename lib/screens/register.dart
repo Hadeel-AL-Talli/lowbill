@@ -71,74 +71,81 @@ class _RegisterState extends State<Register> with Helpers{
           ),
          
           Container(
+            
             margin: EdgeInsets.all(20),
             decoration: BoxDecoration(
+              
               color: Colors.white,
               border: Border.all(),
+              
               borderRadius: BorderRadius.circular(20),
             ),
-            height: 520.h,
-            child: Column(
+           // height: 520.h,
+            child: Wrap(
               children: [
-                SizedBox(
-                  height: 20.h,
-                ),
-                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppTextField(hint: 'Full Name', controller: _nameTextEditingController, prefixIcon: Icons.person),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppTextField(hint: 'Email', controller: _emailTextEditingController, prefixIcon: Icons.email),
-                ),
-                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppTextField(hint: 'Phone', controller: _phoneTextEditingController, prefixIcon: Icons.phone, keyboardType: TextInputType.number,),
-                ),
-                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppTextField(hint: 'City', controller: _cityTextEditingController, prefixIcon: Icons.location_on),
-                ),
-                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppTextField(hint: 'Password', controller: _passwordTextEditingController, prefixIcon: Icons.lock , obscureText: true),
-                ),
-                
-              SizedBox(height: 10.h,),
-                CustomButton(
-                    onPress: () async{
-await performRegister();
-                    }, text: 'Register', color: Color(0xffF59A23)),
-                    SizedBox(height: 10.h,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Column(
                   children: [
-                     Text(
-                      'Already a member? ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          
-                          fontFamily: 'Merr'),
+                    SizedBox(
+                      height: 20.h,
                     ),
+                     Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppTextField(hint: 'Full Name', controller: _nameTextEditingController, prefixIcon: Icons.person),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppTextField(hint: 'Email', controller: _emailTextEditingController, prefixIcon: Icons.email),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppTextField(hint: 'Phone', controller: _phoneTextEditingController, prefixIcon: Icons.phone, keyboardType: TextInputType.number,),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppTextField(hint: 'City', controller: _cityTextEditingController, prefixIcon: Icons.location_on),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AppTextField(hint: 'Password', controller: _passwordTextEditingController, prefixIcon: Icons.lock , obscureText: true),
+                    ),
+                    
+                  SizedBox(height: 10.h,),
+                    CustomButton(
+                        onPress: () async{
+await performRegister();
+                        }, text: 'Register', color: Color(0xffF59A23)),
+                        SizedBox(height: 10.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                         Text(
+                          'Already a member? ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              
+                              fontFamily: 'Merr'),
+                        ),
  InkWell(
   onTap: (){
     Navigator.pushNamed(context, '/login');
   },
    child: Text(
-                        'Login ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.teal,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Merr'),
-                      ),
+                            'Login ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Merr'),
+                          ),
  ),
 
+                      ],
+                    )
                   ],
-                )
+                ),
               ],
             ),
           )

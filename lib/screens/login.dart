@@ -31,7 +31,7 @@ class _LoginState extends State<Login> with Helpers {
     _passwordTextEditingController.dispose();
     super.dispose();
   }
-  bool isChecked = false;
+ // bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

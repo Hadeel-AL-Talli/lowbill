@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     const BnScreen(widget: Home()),
     const BnScreen(widget: Orders()),
     const BnScreen(widget: Offers()),
-    const BnScreen(widget: Profile()),
+     BnScreen(widget: Profile()),
    
   ];
   @override

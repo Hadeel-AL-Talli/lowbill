@@ -78,6 +78,7 @@ StreamSubscription checkUserState({required FbAuthStateListener listener}) {
   Future getCurrentUser() async{
     return await _firebaseAuth.currentUser;
   }
+  String get currentUserId =>_firebaseAuth.currentUser!.uid;
 
  void _controlAuthException({
     required BuildContext context,
