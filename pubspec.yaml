@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^3.4.2
   cloud_firestore:
   bottom_navy_bar: ^6.0.0
+  flutter_credit_card: ^3.0.2
+  
 
 dev_dependencies:
   flutter_test:

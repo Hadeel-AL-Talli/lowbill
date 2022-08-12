@@ -137,7 +137,23 @@ await performLogin();
  ),
 
                   ],
-                )
+                ),
+
+                SizedBox(height: 20,),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/Admin');
+                  },
+                  child: Text(
+                          'Login as Admin ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Merr'),
+                        ),
+                ),
               ],
             ),
           )

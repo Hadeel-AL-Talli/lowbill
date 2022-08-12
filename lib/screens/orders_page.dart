@@ -1,19 +1,38 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/material.dart';
-class Orders extends StatefulWidget {
-  const Orders({Key? key}) : super(key: key);
+
+class OrdersPage extends StatefulWidget {
+  const OrdersPage({Key? key}) : super(key: key);
 
   @override
-  State<Orders> createState() => _OrdersState();
+  State<OrdersPage> createState() => _OrdersPageState();
 }
 
-class _OrdersState extends State<Orders> {
+class _OrdersPageState extends State<OrdersPage> {
   @override
   Widget build(BuildContext context) {
-    
-    return ListView.builder(
+    return Scaffold(
+      appBar:AppBar(
+      
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios, color: Colors.black)),
+        title: const Text(
+          'Orders ',
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'Merr',
+              fontSize: 22,
+              fontWeight: FontWeight.w700),
+        ),
+      ),
+
+      body: ListView.builder(
       itemCount:10,
       itemBuilder: ((context, index) {
         
@@ -24,7 +43,7 @@ class _OrdersState extends State<Orders> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(
-                              width: 2, ),
+                              width: 2,color: Color(0xffF59A23) ),
                          ),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -32,6 +51,24 @@ class _OrdersState extends State<Orders> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                              
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 5),
+                                child: Row(
+                                  children: const[
+                                     Text(
+                                      'Customer Name',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                         fontWeight: FontWeight.bold,
+                                          fontFamily: 'Merr',
+                                          color: Colors.black),
+                                    ),
+                                    const Spacer(),
+                                    Text('Test',
+                                        style: TextStyle(color: Colors.black , fontFamily: 'Merr',fontWeight: FontWeight.bold,)),
+                                  ],
+                                ),
+                              ),
                               const SizedBox(
                                 height: 9,
                               ),
@@ -52,6 +89,11 @@ class _OrdersState extends State<Orders> {
                                         style: TextStyle(color: Colors.black , fontFamily: 'Merr',fontWeight: FontWeight.bold,)),
                                   ],
                                 ),
+                              ),
+
+                                  
+                              const SizedBox(
+                                height: 7,
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 5),
@@ -114,6 +156,7 @@ class _OrdersState extends State<Orders> {
                       ),
                     ),
       );
-    }));
+    })
+    ));
   }
 }

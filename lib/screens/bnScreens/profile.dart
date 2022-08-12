@@ -47,19 +47,56 @@ class _ProfileState extends State<Profile> with Helpers {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white, elevation: 0, actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: IconButton(
-            icon: Icon(Icons.logout),
-            color: Colors.teal,
-            onPressed: () async {
-              await FbAuthController().signOut();
+      appBar: PreferredSize(
+        preferredSize: Size(double.infinity, 80),
+        child: Container(
+          decoration: BoxDecoration(
+            boxShadow: [BoxShadow(
+              color: Colors.black12,
+              spreadRadius: 5,
+              blurRadius: 2
+            )]
+          ),
+          width: MediaQuery.of(context).size.width,
+          height: 120.h,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.teal,
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
+            ),
+            child: Container(
+              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  
+                   Text("My Profile",style: TextStyle(fontSize: 25,color: Colors.white , fontFamily: 'Merr'),),
+                   IconButton(onPressed: ()async{
+                  await FbAuthController().signOut();
               Navigator.pushReplacementNamed(context, '/login');
-            },
+                   }, icon: Icon(Icons.logout , color: Colors.white,))
+                  
+                ],
+              ),
+            ),
           ),
         ),
-      ]),
+      ),
+      // appBar: AppBar(
+      // title: Text('My Profile' , style: TextStyle(color: Colors.black, fontFamily: 'Merr', fontWeight: FontWeight.bold),),
+      //   backgroundColor: Colors.white, elevation: 0, actions: [
+      //   Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: IconButton(
+      //       icon: Icon(Icons.logout),
+      //       color: Colors.teal,
+      //       onPressed: () async {
+      //         await FbAuthController().signOut();
+      //         Navigator.pushReplacementNamed(context, '/login');
+      //       },
+      //     ),
+      //   ),
+      // ]),
 
     
 
@@ -89,7 +126,10 @@ class _ProfileState extends State<Profile> with Helpers {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(
+                        
                         children: [
+                          CircleAvatar(radius: 50,child: Icon(Icons.person, size: 40,color: Colors.white,),backgroundColor: Colors.teal.shade500,),
+                          SizedBox(height: 50.h,),
                           Container(
                               width: double.infinity,
                               height: 50.h,
